@@ -1,3 +1,5 @@
+from collections import defaultdict
+
 DENOMINATIONS = [1, 0.25, 0.10, 0.05, 0.01]
 
 
@@ -10,7 +12,7 @@ def calculate_changes(amount, coins=DENOMINATIONS):
 
 
 def parse_result(combination, coins):
-    results = dict()
+    results = defaultdict(int)
     for c in coins:
         results[c] = 0
     for comb in combination:
