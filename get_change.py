@@ -11,13 +11,20 @@ from output_formatter import format_output
 def get_change(amount):
     cleaned_input = clean_input(amount)
     if not cleaned_input:
-        output = format_output('', [], error='wrong input!')
+        output = format_output(
+            amount=amount,
+            results=[],
+            error='wrong input!',
+        )
         click.echo(output)
         return
 
     value = int(float(cleaned_input) * 100)
     changes = calculate_changes(value)
-    output = format_output(value/100.0, changes)
+    output = format_output(
+        amount=value/100.0,
+        results=changes,
+    )
     click.echo('%s' % json.dumps(output))
 
 
