@@ -1,9 +1,10 @@
 from collections import defaultdict
 
 DENOMINATIONS = [1, 0.25, 0.10, 0.05, 0.01]
+INT_DENOMINATIONS = [int(x * 100) for x in DENOMINATIONS]
 
 
-def calculate_changes(amount, coins=DENOMINATIONS):
+def calculate_changes(amount, coins=INT_DENOMINATIONS):
     combinations = change_combinations(amount, coins)
     results = []
     for combination in combinations:

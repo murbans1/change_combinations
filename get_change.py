@@ -15,9 +15,9 @@ def get_change(amount):
         click.echo(output)
         return
 
-    value = float(cleaned_input)
+    value = int(float(cleaned_input) * 100)
     changes = calculate_changes(value)
-    output = format_output(value, changes)
+    output = format_output(value/100.0, changes)
     click.echo('%s' % json.dumps(output))
 
 
